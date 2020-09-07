@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br" 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css"/>
+	<h:outputStylesheet library="css" name="form.css"/>
+	<title>Message!</title>
+</h:head>
+<h:body>
+	<div class="root">
+		<h:form class="form">
+			<h1 class="form-title">Envie uma Mensagem</h1>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome:" for="name"/>
+				<h:inputText id="name" value="#{messageController.name}"/>
+				<h:outputLabel value="Email:" for="email"/>
+				<h:inputText id="email"  value="#{messageController.email}"/>
+				<h:outputLabel value="Mensagem:" h:type="email" for="message"/>
+				<h:inputTextarea
+					value="#{messageController.message}"
+					id="message"
+					cols="20"
+					rows="10"
+				/>
+				<span/>
+				<h:commandButton
+					action="#{messageController.sendMessage}"
+					value="Enviar Mensagem"
+				/>
+			</h:panelGrid>
+		</h:form>
+	</div>
+</h:body>
+</html>
